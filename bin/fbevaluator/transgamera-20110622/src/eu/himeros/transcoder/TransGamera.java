@@ -72,8 +72,8 @@ public class TransGamera {
             String codeFrom;
             String codeTo;
             File transFile = new File(transFileName);
-            //BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(transFile), "UTF-8"));
-	    BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(transFileName)));
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(transFile), "UTF-8"));
+    	    // BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(transFileName)));
             directHt = new Hashtable<String, String>();
             reverseHt = new Hashtable<String, String>();
             String line=null;
@@ -243,7 +243,7 @@ public class TransGamera {
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             //BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(args[1]), "UTF-8"));
             String line=null;
-            TransGamera trans=new TransGamera("/eu/himeros/resources/transcoders/comb2u.txt");
+            TransGamera trans=new TransGamera(args[0]);
             while((line=br.readLine())!=null){
 		line=line.replaceAll("([αειηουω])\\u02bc([^ ])","$1\u0313$2");
 		line=line.replaceAll("([αειηουω])([βγδζθκλμνξπρσςτφχψ])([\\u0300-\\u036F]{1,2})","$1$3$2");
